@@ -24,5 +24,19 @@ namespace SalaryCalculator.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public ActionResult Calculate(SalaryModel salary)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(salary);
+            }
+            else
+            {
+                // Todo - submit form data
+                return RedirectToAction("Index");
+            }
+        }
     }
 }

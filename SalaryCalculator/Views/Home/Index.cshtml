@@ -4,19 +4,44 @@
     ViewData["Title"] = "Salary Calculator";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Calculate", "Index", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
-    <div class="title">
+    <div class="title" style="padding-bottom: 1em">
         <h1>Salary Calculator</h1>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.FirstName)
+        
         <div class="col-md-10">
+            @Html.LabelFor(m => m.FirstName)
             @Html.EditorFor(m => m.FirstName)
             @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+        <div class="col-md-10">
+            @Html.LabelFor(m => m.LastName)
+            @Html.EditorFor(m => m.LastName)
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+        <div class="col-md-10">
+            @Html.LabelFor(m => m.PhoneNumber)
+            @Html.EditorFor(m => m.PhoneNumber)
+            @Html.ValidationMessageFor(m => m.PhoneNumber)
+        </div>
+        <div class="col-md-10">
+            @Html.LabelFor(m => m.Email)
+            @Html.EditorFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div class="col-md-10">
+            @Html.LabelFor(m => m.Company)
+            @Html.DropDownListFor(m => m.Company, Html.GetEnumSelectList<SalaryModel.CompanyType>(), "Select company", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Company)
+        </div>
+
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Calculate" class="btn btn-default" />
         </div>
     </div>
 }

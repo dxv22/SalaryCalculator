@@ -11,4 +11,12 @@
     <div class="title">
         <h1>Salary Calculator</h1>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName)
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.FirstName)
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+    </div>
 }

@@ -36,4 +36,5 @@ namespace SalaryCalculator.Models
             PartTime,
             Casual
         }
+    }
 }

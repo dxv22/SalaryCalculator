@@ -15,11 +15,7 @@ namespace SalaryCalculator.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            // Index
             return View();
         }
 

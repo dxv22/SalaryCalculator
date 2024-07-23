@@ -19,23 +19,18 @@ namespace SalaryCalculator.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
         [HttpPost]
-        public ActionResult Calculate(SalaryModel salary)
+        [ValidateAntiForgeryToken]
+        public ActionResult Calculate(SalaryModel salaryModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(salary);
+                return View("Index", salaryModel);
             }
             else
             {
                 // Todo - submit form data
-                return RedirectToAction("Index");
+                return View("Index");
             }
         }
     }

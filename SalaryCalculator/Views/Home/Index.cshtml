@@ -12,36 +12,58 @@
         <h1>Salary Calculator</h1>
     </div>
 
-    <div class="form-group">
-        
-        <div class="col-md-10">
-            @Html.LabelFor(m => m.FirstName)
-            @Html.EditorFor(m => m.FirstName)
-            @Html.ValidationMessageFor(m => m.FirstName)
+    <div class="row g-1">
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                @Html.LabelFor(m => m.FirstName, new { @class = "form-label" })
+                @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            </div>
         </div>
-        <div class="col-md-10">
-            @Html.LabelFor(m => m.LastName)
-            @Html.EditorFor(m => m.LastName)
-            @Html.ValidationMessageFor(m => m.LastName)
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                @Html.LabelFor(m => m.LastName, new { @class = "form-label" })
+                @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            </div>
         </div>
-        <div class="col-md-10">
-            @Html.LabelFor(m => m.PhoneNumber)
-            @Html.EditorFor(m => m.PhoneNumber)
-            @Html.ValidationMessageFor(m => m.PhoneNumber)
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                @Html.LabelFor(m => m.PhoneNumber, new { @class = "form-label" })
+                @Html.EditorFor(m => m.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
         </div>
-        <div class="col-md-10">
-            @Html.LabelFor(m => m.Email)
-            @Html.EditorFor(m => m.Email)
-            @Html.ValidationMessageFor(m => m.Email)
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
         </div>
-        <div class="col-md-10">
-            @Html.LabelFor(m => m.Company)
-            @Html.DropDownListFor(m => m.Company, Html.GetEnumSelectList<SalaryModel.CompanyType>(), "Select company", new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Company)
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                @Html.LabelFor(m => m.Company, new { @class = "form-label" })
+                @Html.DropDownListFor(m => m.Company, Html.GetEnumSelectList<SalaryModel.CompanyType>(), "Select company", new { @class = "form-select" })
+                @Html.ValidationMessageFor(m => m.Company, "", new { @class = "text-danger" })
+            </div>
         </div>
-
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Calculate" class="btn btn-default" />
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                @Html.LabelFor(m => m.Work, new { @class = "form-label" })
+                @Html.DropDownListFor(m => m.Work, Html.GetEnumSelectList<SalaryModel.WorkType>(), "Select work", new { @class = "form-select" })
+                @Html.ValidationMessageFor(m => m.Work, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                @Html.LabelFor(m => m.Salary, new { @class = "form-label" })
+                @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Work, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mt-4">
+            <input type="submit" value="Calculate" class="btn btn-primary" />
         </div>
     </div>
 }

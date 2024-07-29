@@ -30,7 +30,7 @@ namespace SalaryCalculator.Controllers
             else
             {
                 // Todo - submit form data
-                return View("Index");
+                return View("Index", salaryModel);
             }
         }
     }

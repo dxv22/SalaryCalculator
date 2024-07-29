@@ -9,8 +9,10 @@ namespace SalaryCalculator.Models
         [Required(ErrorMessage = "Please enter last name")]
         public string? LastName { get; set; }
         [Required(ErrorMessage = "Please enter phone number")]
-        public int PhoneNumber { get; set; }
+        [RegularExpression(@"^04\d{8}$", ErrorMessage = "Please enter a valid phone number e.g. 0411111111")]
+        public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Please enter email")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email")]
         public string? Email { get; set; }
         [Required(ErrorMessage = "Please select company")]
         public CompanyType Company { get; set; }
@@ -34,6 +36,7 @@ namespace SalaryCalculator.Models
             FullTime,
             [Display(Name = "Part-time")]
             PartTime,
+            [Display(Name = "Casual")]
             Casual
         }
     }

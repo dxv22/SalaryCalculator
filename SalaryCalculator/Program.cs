@@ -1,7 +1,13 @@
+using SalaryCalculator.Services;
+using SalaryCalculator.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Register services
+builder.Services.AddScoped<ICalculationService, CalculationService>();
 
 var app = builder.Build();
 

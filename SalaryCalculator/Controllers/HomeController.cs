@@ -1,16 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using SalaryCalculator.Models;
-using System.Diagnostics;
+using SalaryCalculator.Services.Interfaces;
 
 namespace SalaryCalculator.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICalculationService _calculationService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICalculationService calculationService)
         {
             _logger = logger;
+            _calculationService = calculationService;
         }
 
         public IActionResult Index()
@@ -29,8 +31,10 @@ namespace SalaryCalculator.Controllers
             }
             else
             {
-                // Todo - submit form data
-                return View("Index", salaryModel);
+                var totalLimit = _calculationService.CalculateSalaryLimit(salaryModel);
+
+                //return View("Index", salaryModel);
+                return View("Index");
             }
         }
     }

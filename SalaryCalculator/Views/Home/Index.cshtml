@@ -16,28 +16,28 @@
         <div class="col-md-6">
             <div class="form-group mb-3">
                 @Html.LabelFor(m => m.FirstName, new { @class = "form-label" })
-                @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your first name" } })
                 @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group mb-3">
                 @Html.LabelFor(m => m.LastName, new { @class = "form-label" })
-                @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your last name" } })
                 @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group mb-3">
                 @Html.LabelFor(m => m.PhoneNumber, new { @class = "form-label" })
-                @Html.EditorFor(m => m.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(m => m.PhoneNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your phone number" } })
                 @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group mb-3">
                 @Html.LabelFor(m => m.Email, new { @class = "form-label" })
-                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your email" } })
                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,8 +58,24 @@
         <div class="col-md-6">
             <div class="form-group mb-3">
                 @Html.LabelFor(m => m.Salary, new { @class = "form-label" })
-                @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your salary" } })
                 @Html.ValidationMessageFor(m => m.Work, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group mb-3">
+                <div class="radio-option">
+                    @Html.RadioButtonFor(m => m.IsDegree, "True", new { @id = "hasDegree", @class = "custom-radio" })
+                    <label for="hasDegree" class="radio-label">Has degree</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group mb-3">
+                <div class="radio-option">
+                    @Html.RadioButtonFor(m => m.IsDegree, "False", new { @id = "noDegree", @class = "custom-radio" })
+                    <label for="noDegree" class="radio-label">No degree</label>
+                </div>
             </div>
         </div>
         <div class="mt-4">

@@ -4,6 +4,6 @@ namespace SalaryCalculator.Services.Interfaces
 {
     public interface ICalculationService
     {
-        public decimal CalculateSalaryLimit(SalaryModel details);
+        public double CalculateSalaryLimit(SalaryModel details);
     }
 }

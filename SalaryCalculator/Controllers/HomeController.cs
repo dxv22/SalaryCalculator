@@ -27,11 +27,14 @@ namespace SalaryCalculator.Controllers
         {
             if (!ModelState.IsValid)
             {
+                // Return validation errors
                 return View("Index", salaryModel);
             }
             else
             {
                 var totalLimit = _calculationService.CalculateSalaryLimit(salaryModel);
+                
+                // Change some field with js to show the total limit
 
                 //return View("Index", salaryModel);
                 return View("Index");

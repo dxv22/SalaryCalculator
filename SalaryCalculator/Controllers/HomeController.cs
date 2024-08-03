@@ -15,10 +15,13 @@ namespace SalaryCalculator.Controllers
             _calculationService = calculationService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             // Index
-            return View();
+            var model = new SalaryModel();
+
+            return View(model);
         }
 
         [HttpPost]
@@ -27,17 +30,17 @@ namespace SalaryCalculator.Controllers
         {
             if (!ModelState.IsValid)
             {
-                // Return validation errors
+                // Return same view with errors
+                salaryModel.ShowResult = false;
+
                 return View("Index", salaryModel);
             }
             else
             {
-                var totalLimit = _calculationService.CalculateSalaryLimit(salaryModel);
-                
-                // Change some field with js to show the total limit
+                salaryModel.CalculatedSalaryLimit = _calculationService.CalculateSalaryLimit(salaryModel);
+                salaryModel.ShowResult = true;
 
-                //return View("Index", salaryModel);
-                return View("Index");
+                return View("Index", salaryModel);
             }
         }
     }

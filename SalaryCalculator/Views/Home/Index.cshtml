@@ -9,7 +9,13 @@
     @Html.AntiForgeryToken()
 
     <div class="title" style="padding-bottom: 1em">
-        <h1>Salary Calculator</h1>
+        <h1>Salary Calculator
+            <i id="infoIcon" class="bi bi-info-circle"
+               data-bs-toggle="popover" data-bs-trigger="hover"
+               data-bs-html="true" data-bs-placement="right"
+               style="font-size: 24px; cursor: pointer;">
+            </i>
+        </h1>
     </div>
 
     <div class="row g-1">
@@ -89,4 +95,14 @@
             <input type="submit" value="Calculate" class="btn btn-primary" />
         </div>
     </div>
+
+    @if (Model.ShowResult)
+    {
+        <br />
+        <div class="alert alert-success" role="alert">
+            <label>Result:</label>
+            <span>Your calculated salary limit is: <strong>$@String.Format("{0:F2}", @Model.CalculatedSalaryLimit)</strong></span>
+        </div>
+    }
+
 }

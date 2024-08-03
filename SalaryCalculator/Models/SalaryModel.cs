@@ -9,7 +9,7 @@ namespace SalaryCalculator.Models
         [Required(ErrorMessage = "Please enter last name")]
         public string? LastName { get; set; }
         [Required(ErrorMessage = "Please enter phone number")]
-        [RegularExpression(@"^04\d{8}$", ErrorMessage = "Please enter a valid phone number e.g. 0411111111")]
+        [RegularExpression(@"^04\d{8}$", ErrorMessage = "Please enter a valid AU phone number e.g. 0411111111")]
         public string? PhoneNumber { get; set; }
         [Required(ErrorMessage = "Please enter email")]
         [EmailAddress(ErrorMessage = "Please enter a valid email")]
@@ -26,6 +26,9 @@ namespace SalaryCalculator.Models
         [Required(ErrorMessage = "Please enter salary")]
         [Range(0, double.MaxValue, ErrorMessage = "Please enter a valid salary")]
         public double Salary { get; set; }
+
+        public bool ShowResult { get; set; } = false;
+        public double CalculatedSalaryLimit { get; set; }
 
         public enum CompanyType
         {
